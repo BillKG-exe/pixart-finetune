@@ -41,11 +41,11 @@ def download_model(model_name):
     Downloads a pre-trained PixArt model from the web.
     """
     assert model_name in pretrained_models
-    local_path = f'output/pretrained_models/{model_name}'
+    local_path = f'/content/drive/My Drive/pixart/output/pretrained_models/{model_name}'
     if not os.path.isfile(local_path):
-        os.makedirs('output/pretrained_models', exist_ok=True)
+        os.makedirs('/content/drive/My Drive/pixart/output/pretrained_models', exist_ok=True)
         web_path = f'https://huggingface.co/PixArt-alpha/PixArt-alpha/resolve/main/{model_name}'
-        download_url(web_path, 'output/pretrained_models')
+        download_url(web_path, '/content/drive/My Drive/pixart/output/pretrained_models')
     return torch.load(local_path, map_location=lambda storage, loc: storage)
 
 
@@ -71,9 +71,9 @@ if __name__ == "__main__":
 
     # Download PixArt checkpoints
     for t5_model in t5_models:
-        download_other(t5_model, t5_models, 'output/pretrained_models/t5_ckpts')
+        download_other(t5_model, t5_models, '/content/drive/My Drive/output/pixart/pretrained_models/t5_ckpts')
     for vae_model in vae_models:
-        download_other(vae_model, vae_models, 'output/pretrained_models/')
+        download_other(vae_model, vae_models, '/content/drive/My Drive/pixart/output/pretrained_models/')
     for model in model_names:
         download_model(model)    # for vae_model in vae_models:
     print('Done.')
