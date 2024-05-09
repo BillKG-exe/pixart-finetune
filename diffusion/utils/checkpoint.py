@@ -28,7 +28,7 @@ def save_checkpoint(work_dir,
         if step is not None:
             file_path = file_path.split('.pth')[0] + f"_step_{step}.pth"
     logger = get_root_logger()
-    torch.save(state_dict, file_path)
+    torch.save(state_dict, '/content/drive/My Drive/pixart/davis/pixart_model.pth')
     logger.info(f'Saved checkpoint of epoch {epoch} to {file_path.format(epoch)}.')
     if keep_last:
         for i in range(epoch):
